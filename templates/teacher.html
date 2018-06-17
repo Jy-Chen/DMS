@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>teacher</title>
+
+
+
+</head>
+<body>
+<table border="1">
+        <thead>
+            <tr bgcolor="white">
+                <th>id</th>
+                <th>老师姓名</th>
+                <th>教授班级</th>
+                <th colspan="2">操作</th>
+            </tr>
+        </thead>
+
+
+<tbody>
+            {% for teacher in teacher_list %}
+                <tr bgcolor="white">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ teacher.teacher_name }}</td>
+                    <td>
+                        {% for grade in teacher.grades.all %}
+                            {% if forloop.last %}
+                                {{ grade.classname }}
+                            {% else %}
+                                {{ grade.classname }},
+                            {% endif %}
+                          {% empty %}暂未授课
+                        {% endfor %}
+                    </td>
+                <td>
+                    <button><a href="/change_teacher/?id={{ teacher.id }}">修改</a></button>
+                    <button><a href="/del_teacher/?id={{ teacher.id }}">删除</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+</tbody>
+
+
+</table>
+<button><a href="/add_teacher/">添加老师</a></button>
+
+</body>
+</html>

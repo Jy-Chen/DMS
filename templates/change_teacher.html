@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>change_teacher</title>
+</head>
+<body>
+
+<form action="" method="post">
+    <input type="text" name="new_teacher_name" value="{{ teacher.teacher_name }}">
+     <select name="teacher_class_id" multiple>
+        {% for grade in grade_list %}
+            {% if grade in teacher.grades.all %}
+            <option value="{{ grade.id }}" selected>{{ grade.classname }}</option>
+                {% else %}
+                <option value="{{ grade.id }}">{{ grade.classname }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <button type="submit">修改老师</button>
+</form>
+
+
+</body>
+</html>

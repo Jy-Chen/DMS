@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>grade</title>
+
+
+
+</head>
+<body>
+<table border="1">
+        <thead>
+            <tr bgcolor="white">
+                <th>id</th>
+                <th>班级</th>
+                <th colspan="2">操作</th>
+            </tr>
+        </thead>
+
+<tbody>
+            {% for grade in grade_list %}
+                <tr bgcolor="white">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ grade.classname }}</td>
+                <td>
+                    <button><a href="/change_grade/?id={{ grade.id }}">修改</a></button>
+                    <button><a href="/del_grade/?id={{ grade.id }}">删除</a></button>
+                </td>
+            </tr>
+            {% endfor %}
+</tbody>
+
+</table>
+<button><a href="/add_grade/">添加</a></button>
+
+</body>
+</html>

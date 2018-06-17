@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add_student</title>
+</head>
+<body>
+
+<form action="/add_student/" method="post">
+    <input type="text" name="add_student_name">
+    <select name="student_class">
+        {% for grade in grade_list %}
+            <option value="{{ grade.id }}">{{ grade.classname }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">添加学生</button>
+</form>
+
+
+</body>
+</html>

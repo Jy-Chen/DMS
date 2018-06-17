@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>change_student</title>
+</head>
+<body>
+
+<form action="" method="post">
+    <input type="text" name="new_student_name" value="{{ sutdent.student_name }}">
+     <select name="student_class_id">
+        {% for grade in grade_list %}
+            {% if sutdent.grade == grade %}
+            <option value="{{ grade.id }}" selected>{{ grade.classname }}</option>
+                {% else %}
+                <option value="{{ grade.id }}">{{ grade.classname }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <button type="submit">修改班级</button>
+</form>
+
+
+</body>
+</html>
